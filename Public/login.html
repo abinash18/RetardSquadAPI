@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        XxR!SxX Team Fourms
+    </title>
+    <meta http-equiv="pragma" content="no-cache" />
+    <!-- <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../css/infopage.css" type="text/css"> -->
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> -->
+    <!-- <script type="text/javascript" src="../../js/menu.js"></script>
+        <script type="text/javascript" src="../../js/infopagemenu.js"></script> -->
+    <meta charset="utf-8;" />
+</head>
+
+<body>
+    <div class="fill">
+        <div class="nav">
+            <div class="subtitle-infopage">
+                <h2>
+                    Welcome
+                </h2>
+            </div>
+            <div class="line">
+            </div>
+            <ul class="menu">
+                <li class="inactive">
+                    <a class="link" href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/pages/login.html">
+                        Login
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/pages/register.html">
+                        Register
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="link" href="profile.html">
+                        Profile
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="link" href="profiles.html">
+                        Profiles
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="adminloginpanel.html">
+                        Admin
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="loginpane">
+        <form action="/api/logindev" method="POST">
+            <p>email:</p>
+            <input type="email" name="email" id="emailinput" />
+            <p>Password:</p>
+            <input type="Password" name="pass" id="passwordinput" />
+            <br />
+            <input type="submit" id="submit" name="submit" value="Login" />
+        </form>
+    </div>
+    <div id="message">
+
+    </div>
+    <!-- <script>
+        jQuery(document).ready(function () {
+            jQuery("#submit").on("click", function () {
+                var data = {
+                    email: jQuery("#emailinput").val(),
+                    pass: jQuery("#passwordinput").val()
+                };
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "/api/logindev",
+                    "method": "POST",
+                    "headers": {
+                        "content-type": "application/json",
+                        "cache-control": "no-cache",
+                    },
+                    "processData": false,
+                    "data": data
+                }
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                    // if (response.status == "200") {
+                    //     window.location.replace('/');
+                    // } else if (response.status == "401") {
+                    //     jQuery("#submit").prop("disabled", false);
+                    // }
+                });
+            });
+
+
+        });
+    </script> -->
+    <script>
+        jQuery(document).ready(function(){
+            var urlParams = new URLSearchParams(window.location.search);
+            var m = urlParams.get('m');
+            if (m) {
+                jQuery("#message").append('<p style="color: red;">' + m + '</p>')
+            };
+        });
+        // jQuery(document).ready(function () {
+        //     // jQuery("#submit").prop("disabled", true);
+        //     // jQuery("#passwordinput, #emailinput").keyup(function () {
+        //     // var unencodedPass = jQuery("#passwordinput").val();
+        //     // var unencodedEmail = jQuery("#emailinput").val();
+        //     // });
+        //     // if (unencodedPass != "") {
+        //     //     if (unencodedEmail != "") {
+        //     jQuery("#submit").prop("disabled", false);
+        //     jQuery("#submit").click(function () {
+        //         var unencodedPass = jQuery("#passwordinput").val();
+        //         var unencodedEmail = jQuery("#emailinput").val();
+        //         console.log(unencodedPass + " " + unencodedEmail);
+        //         var encodedPass = btoa(unencodedPass);
+        //         var encodedemail = btoa(unencodedEmail);
+        //         var data = {
+        //             email: unencodedEmail,
+        //             pass: unencodedPass
+        //         }
+        //         var settings = {
+        //             "async": true,
+        //             "crossDomain": true,
+        //             "url": "http://127.0.01:3030/logindev",
+        //             "method": "POST",
+        //             "headers": {
+        //                 "content-type": "application/json",
+        //                 "cache-control": "no-cache",
+        //                 "postman-token": "5aebad51-2445-2570-55ae-64a448eaa190"
+        //             },
+        //             "processData": false,
+        //             "data": "{\n\t\"email\": \"abinashbhullar.as@gmail.com\",\n\t\"pass\": \"123\"\n}"
+        //         }
+
+        //         $.ajax(settings).done(function (response) {
+        //             console.log(response);
+        //             if (response.status == 'OK') {
+        //                 window.sessionStorage.setItem('token', response.ct);
+        //                 window.location.replace(response.url);
+        //             }
+        //         });
+
+        //     });
+        //     // jQuery.post('/api/login', {
+        //     //         pass: encodedPass,
+        //     //         email: encodedemail
+        //     //     },
+        //     //     function (result) {
+        //     // console.log(result);
+
+        //     //     });
+        // });
+        // //     } else {
+        // //         jQuery("#message").html("Please Enter A Email").show();
+        // //         jQuery("#submit").prop("disabled", true);
+        // //     }
+
+
+        // // } else {
+        // //     jQuery("#message").html("Please Enter A password").show();
+        // //     jQuery("#submit").prop("disabled", true);
+        // // }
+    </script>
+    <!-- <div class="content">
+            <p id="message" style="color: red;"></p>
+            <script type="text/javascript" src="/js/AJAX_checkusername.js"></script>
+             <script type="text/javascript" src="../../js/AJAX_registeruser.js"></script>             
+        </div> -->
+    <!-- Footer -->
+    <footer id="footer">
+        XxR!SxX Copyright 2018&#169;(not really)
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        XxR!SxX Team Fourms
+    </title>
+    <meta http-equiv="pragma" content="no-cache" />
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <meta charset="utf-8;" />
+</head>
+
+<body>
+    <div class="fill">
+        <div class="nav">
+            <div class="subtitle-infopage">
+                <h2>
+                    Welcome To Fortnite Skins Trade Marker
+                </h2>
+            </div>
+            <div class="line">
+            </div>
+            <ul class="menu">
+                <li class="inactive">
+                    <a class="link" href="/index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/login.html">
+                        Login
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/register.html">
+                        Register
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="link" href="/profile.html">
+                        Add Skin
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="link" href="/FSTM/tm.html">
+                        Trade Mark Skin
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/adminloginpanel.html">
+                        Admin
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <h3>
+            Skins Trade Marked:
+        </h3>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>TradeMarkedBy</th>
+                    <th>Skin Name</th>
+                    <th>Preview</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        jQuery.ajax({
+            url: '/api/fstm/gettrademarks',
+            type: 'get',
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+                if (data.skins === []) {
+                    _tr = 'No Trade Marks'
+                    jQuery('tbody').append(_tr);
+                } else {                    
+                    jQuery(data.skins).each(function (index, value) {
+                        if (data.selfId == value.tradeMarkedBy) {
+                            _tr = '<tr style="background-color:red;"><td><a href="/profile?u=' +
+                                value.tradeMarkedBy +
+                                '">Go to user profile</a></td><td ><a align="center"href="/skin?s=' + value._id +
+                                '">' +
+                                value.name +
+                                '</a></td><td><img style="width: 100px; length: 50px;"src="' +
+                                value
+                                .imagePreview + '"></td></tr>'
+                        } else {
+                            _tr = '<tr><td><a href="/profile?u=' + value.tradeMarkedBy +
+                                '">Go to user profile</a></td><td><a href="/skin?s=' + value._id +
+                                '">' +
+                                value.name +
+                                '</a></td><td><img style="width: 100px; length: 50px;"src="' +
+                                value
+                                .imagePreview + '"></td></tr>'
+                        };
+
+                        jQuery('tbody').append(_tr);
+                    });
+                };
+            }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer id="footer">
+        XxR!SxX Copyright 2018&#169;(not really)
+    </footer>
+</body>
+
+</html>

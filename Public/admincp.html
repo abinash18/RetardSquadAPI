@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        XxR!SxX Team Fourms
+    </title>
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="stylesheet" href="/Public/css/admincp.css" type="text/css">
+    <!-- <link rel="stylesheet" href="../../css/main.css" type="text/css">
+    
+        <link rel="stylesheet" href="../../css/infopage.css" type="text/css"> -->
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> -->
+    <!-- <script type="text/javascript" src="../../js/menu.js"></script>
+        <script type="text/javascript" src="../../js/infopagemenu.js"></script> -->
+    <meta charset="utf-8;" />
+    <style>
+        #panel{
+    align-content: center;
+    align-self: center;
+    justify-content: center;
+    border: 2px solid red;
+}
+form li {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+label.desc {
+    padding: 0;
+}
+
+input.text {
+    padding: 0;
+}
+    </style>
+</head>
+
+<body>
+    <!-- <div id="banner">
+        </div> -->
+    <div class="fill">
+        <div class="nav">
+            <div class="subtitle-infopage">
+                <h2>
+                    Welcome
+                </h2>
+            </div>
+            <div class="line">
+            </div>
+            <ul class="menu">
+                <li class="inactive">
+                    <a class="link" href="/index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/pages/login.html">
+                        Login
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/pages/register.html">
+                        Register
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="link" href="/profile.html">
+                        Profile
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="link" href="/profiles.html">
+                        Profiles
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/adminloginpanel.html">
+                        Admin
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="/FSTM/index.html">
+                        FSTM
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <h3>
+            Actions:
+        </h3>
+    </div>
+    <div>
+        <ul class="menu">
+            <li class="inactive">
+                <a class="link" href="/index.html">
+                    Edit Skins
+                </a>
+            </li>
+            <li class="inactive">
+                <a class="link" href="/login.html">
+                    Edit Users
+                </a>
+            </li>
+            <li class="inactive">
+                <input type="button" id="addskins" value="Add Skins">
+
+            </li>
+            <li class="active">
+                <a class="link" href="/profile.html">
+                    Remove Users
+                </a>
+            </li>
+            <li class="active">
+                <a class="link" href="/profiles.html">
+                    Admin Reg Codes
+                </a>
+            </li>
+            <li class="inactive">
+                <a class="link" href="/adminloginpanel.html">
+                    Other Admins
+                </a>
+            </li>
+            <li class="inactive">
+                <a class="link" href="/FSTM/index.html">
+                    Revoke Skins
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="panel">
+
+    </div>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery.ajax({
+                url: '/api/admin',
+                type: 'get',
+                dataType: 'json',
+                cache: false,
+                beforeSend: function () {
+                    jQuery("#panel").html(
+                        '<img style="width: 150px; length: 150px;" src="https://digitalsynopsis.com/wp-content/uploads/2016/06/loading-animations-preloader-gifs-ui-ux-effects-18.gif">'
+                    );
+                }
+            }).done(function (data) {
+                if (data.admin == true) {
+                    // jQuery("#panel").last().remove();
+                    jQuery("#panel").html('<p>Waiting for action</p>');
+                    jQuery("#panel").append(
+                        '<img style="width: 150px; length: 150px;" src="https://static-steelkiwi-dev.s3.amazonaws.com/media/filer_public/2b/3b/2b3b2d3a-437b-4e0a-99cc-d837b5177baf/7d707b62-bb0c-4828-8376-59c624b2937b.gif">'
+                    );
+                } else {
+                    window.location.replace('/login');
+                };
+            });
+            // jQuery(".link").on("click", function(){
+            //     console.log(jQuery(this).val());
+            // });
+
+            function addSkinsPanel() {
+
+            }
+            jQuery("#addskins").on("click", function () {
+                _addSkinsPanel = '<form name="addSkins" action="">' +
+                    '<p>Enter Skin Name</p>' +
+                    '<input name="name" placeholder="Formatted name of skin">' +
+                    '<p>Enter Skin Rarity</p>' +
+                    '<input name="rarity" placeholder="(1-4) Green - Blue - Purple - Gold" requierd>' +
+                    '<label value="Season:"></p>' +
+                    '<p>Skin Season</p>' +
+                    '<input name="skinSeason" placeholder="the season the skin came out" required>' +
+                    '<p>Tier:</p>' +
+                    '<input name="tier" placeholder="If not in battle pass just leave empty">' +
+                    '<p>Provied a link for the preview image</p>' +
+                    '<input name="imagePreview" placeholder="Paste the link if u have it from another website">' +
+                    '<p>Paste a link for the full body image</p>' +
+                    '<input name="skinPreview" placeholder="Paste the link if u have it from another website">' +
+                    '<input type="button" id="submitaddskin" value="Add Skin">' +
+                    '</form>'
+                // jQuery("#panel").last().remove();
+                jQuery("#panel").html(_addSkinsPanel);
+            });
+            jQuery("#submitaddskin").on("click", function () {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "/api/fstm/submitskin",
+                    "method": "POST",
+                    "headers": {
+                        "content-type": "application/x-www-form-urlencoded",
+                        "cache-control": "no-cache",
+                    },
+                    "data": {
+                        "name": jQuery('input[name=name]').val()
+                    },
+                }
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+            });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer id="footer">
+        XxR!SxX Copyright 2018&#169;(not really)
+    </footer>
+</body>
+
+</html>

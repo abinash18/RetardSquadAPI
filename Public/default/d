@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        XxR!SxX Team Fourms
+    </title>
+    <meta http-equiv="pragma" content="no-cache" />
+    <!-- <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../css/infopage.css" type="text/css"> -->
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> -->
+    <!-- <script type="text/javascript" src="../../js/menu.js"></script>
+        <script type="text/javascript" src="../../js/infopagemenu.js"></script> -->
+    <meta charset="utf-8;" />
+</head>
+
+<body>
+    <!-- <div id="banner">
+        </div> -->
+    <div class="fill">
+        <div class="nav">
+            <div class="subtitle-infopage">
+                <h2>
+                    Welcome
+                </h2>
+            </div>
+            <div class="line">
+            </div>
+            <ul class="menu">
+                <li class="inactive">
+                    <a class="link" href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="login.html">
+                        Login
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="register.html">
+                        Register
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="link" href="profile.html">
+                        Profile
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="link" href="profiles.html">
+                        Profiles
+                    </a>
+                </li>
+                <li class="inactive">
+                    <a class="link" href="adminloginpanel.html">
+                        Admin
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <form id="form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">NAME</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required />
+            </div>
+
+            <input id="uploadImage" type="file" accept="image/*" name="pic" />
+            <div id="preview"><img src="" /></div><br>
+            <input class="btn btn-success" type="submit" value="Upload">
+        </form>
+
+        <div id="err"></div>
+
+        <p id="message" style="color: red;"></p>
+        <script type="text/javascript" src="/js/AJAX_checkusername.js"></script>
+        <script type="text/javascript" src="../../js/AJAX_registeruser.js"></script>
+        <script>
+            $(document).ready(function (e) {
+                $("#form").on('submit', (function (e) {
+                    var formData = new FormData(this);
+                    e.preventDefault();
+                    e.preventDefault();
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/api/uploadprofilepic",
+                        "method": "POST",
+                        "headers": {
+                            "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiaW5hc2hiaHVsbGFyLmFzQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWJpbmFzaDEiLCJyb2xlIjoiTWVtYmVyIiwidXNlcmlkIjoiZjVlODM0MDhhMzZmYjIwODQ1NzMyNDRkYTU2ODg3N2IyNTNjZTlkMjQ5MzNiYzZkNWZiODg5OWM3Y2E4N2RkOCIsImRiSWQiOiI1YmE2ODdlY2E3MDI2OTE1ZDhkMDViNmYiLCJpYXQiOjE1Mzc2NTQ3MTgsImV4cCI6MTUzNzY1ODMxOH0.iXdrY2APQJ3zk3wf4c90gSsIjNKNLR-Lk4WdNynmQNY",
+                            "cache-control": "no-cache",
+                        },
+                        "processData": false,
+                        "contentType": false,
+                        "mimeType": "multipart/form-data",
+                        "data": formData,
+                    }
+                    $.ajax(settings).done(function (data) {
+                        console.log(data);
+                        window.location.replace("/api/profile/" + data.url);
+                    });
+                    //     {
+                    //     url: "/api/uploadprofilepic",
+                    //     type: "POST",
+                    //     data: formData,
+                    //     contentType: false,
+                    //     cache: false,
+                    //     processData: false,
+                    //     beforeSend: function () {
+                    //         //$("#preview").fadeOut();
+                    //         $("#err").fadeOut();
+                    //     },
+                    //     success: function (data) {
+                    //         if (data == 'invalid') {
+                    //             // invalid file format.
+                    //             $("#err").html("Invalid File !").fadeIn();
+                    //         } else {
+                    //             window.location.replace("/api/profile/" + data.url);
+                    //             console.log(data);
+                    //             // view uploaded file.
+                    //             $("#preview").html(data.file).fadeIn();
+                    //             $("#form")[0].reset();
+                    //         }
+                    //     },
+                    //     error: function (e) {
+                    //         $("#err").html(e).fadeIn();
+                    //     }
+                    // }
+                }));
+            });
+        </script>
+        <!-- <script>
+                document.domain = document.domain;
+            </script>
+                <iframe src="http://127.0.0.1:8088/terminal/" height="800" width="800"></iframe>
+        </div> -->
+        <!-- Footer -->
+        <footer id="footer">
+            XxR!SxX Copyright 2018&#169;(not really)
+        </footer>
+</body>
+
+</html>

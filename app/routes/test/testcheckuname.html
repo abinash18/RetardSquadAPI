@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>
+            Login
+        </title>
+        <meta http-equiv="pragma" content="no-cache" />
+        <link rel="stylesheet" href="../../css/main.css" type="text/css">
+        <link rel="stylesheet" href="../../css/forum-loginpage.css" type="text/css">
+        <meta charset="utf-8;" />
+        <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/menu.js"></script>
+    </head>
+    <body>           
+            <div class="nav">
+                <ul class="menu">
+                    <li class="inactive">
+                        <a class="link" href="../../index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="inactive">
+                        <a class="link" href="../../pages/Info/info.html">
+                            Info
+                        </a>
+                    </li>
+                    <li class="inactive">
+                        <a class="link" href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="link" href="#">
+                            Forums
+                        </a>
+                    </li>
+                    <li class="inactive">
+                        <a class="link" href="#">
+                            Home
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        <div class="container">
+            <form action="/api/checkunamescripttest" method="POST">
+                <p>Username:</p>
+                <input type="text" name="uname" id="usernameinput" />
+                <p>Password:</p>
+                <input type="Password" name="pinput" id="passwordinput" />
+                <br />
+                <div style="margin-top:10px;">
+                    <input type="submit" value="Login" />
+                </div>
+            </form>
+            <p id="message"></p>
+            <script>
+                    jQuery(document).ready(function() {
+                    jQuery("#usernameinput").keyup(function() {
+                    var usernametocheck = jQuery("#usernameinput").val();
+                    var functiontouse = 1;
+                    jQuery.post('/api/checkunamescripttest', {
+                        username: usernametocheck,
+                        funci: functiontouse
+                    },
+                        function(result) {
+                            jQuery("#message").html(result).show();
+                        });
+                    });    
+                });
+            </script>
+        </div>        
+        <h6 id="footer">
+            Made from scratch by 
+            <div class="skewX-negative">
+                <p id="skewX-positive">
+                    Abinash Singh
+                </p>
+            </div>
+        </h6>
+    </body>
+</html>

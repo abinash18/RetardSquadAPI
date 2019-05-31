@@ -1,0 +1,125 @@
+ul          {
+                list-style: none;
+                font-family: Futura Heavy Oblique;
+                
+                width: 70%;
+                margin: 0 auto;
+    
+            }
+ul li       {
+                float: left;
+                width: 500px;
+                height: 40px;
+                background-color: black;
+                text-align: center;
+                opacity: .8;
+                line-height: 40px;
+                font-size: 20px;
+            }
+ul li a     {
+                text-decoration: none;
+                color: #999999;
+                display: block;
+}
+ul li:hover, ul li a:hover  {
+                color: #FFF
+}
+ul li ul li   {
+                display: none;
+}
+ul li:hover ul li   {
+                display: block;
+}
+
+===========================================================
+
+            <ul class="Menu">
+                <li class="Menuitem">
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="Menuitem">
+                    <a href="#">
+                        Info
+                    </a>
+                    <ul class="Submenu">
+                        <li class="Submenuitem">
+                            <a href="#">
+                                Empty
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="Menuitem">
+                    <a href="#">
+                        Discord Link
+                    </a>
+                </li>
+            </ul>
+            
+================================================================
+nav         {
+                position: fixed;
+                width: 100%;
+                left: 0;
+                top: 0;
+                height: 100px;                
+                text-align: center;                
+                transition: 0.5s;
+                box-sizing: border-box;
+                position: fixed;
+                top: 0px;
+}
+nav #menu     {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                background-color: #f1f1f1;
+                text-align: center;
+}
+nav #menu li  {
+                list-style: none;
+}
+nav #menu li a {
+                line-height: 25px;
+                color: #999999;
+                padding: 5px 20px;
+                text-decoration: none;
+                display: block;
+                transition: .5s;
+}
+nav #menu li a:hover {
+                background-color: #000000;
+                color: #FFF;
+}
+nav #menu li a.active {
+                background-color: #000000;
+                color: #FFF;
+}
+nav #menu li a ul li a{
+                display: none;
+}
+nav #menu li a:hover ul li a{
+                display: block;
+}
+===============================================================
+            <nav>
+                <ul id="menu">
+                    <li>
+                        <a href="index.html" class="active">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Info                        
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Discord Link
+                        </a>
+                    </li>
+                </ul>                        
+            </nav>

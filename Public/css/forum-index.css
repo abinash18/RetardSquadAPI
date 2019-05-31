@@ -1,0 +1,24 @@
+.nav .subtitle-infopage
+{
+    text-align: center;
+    font-family: Futura Heavy Oblique;
+    margin-bottom: 10px;
+}
+.maxtitle2
+{
+    font-size: 20px;
+    transition: .3s;
+}
+#banner     
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 95%;
+    background-image: url('../images/1x/Forums%20landingbanner.png');
+    /*background-attachment: fixed;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

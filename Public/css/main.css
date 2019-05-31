@@ -1,0 +1,330 @@
+html        
+{                
+    height: 100%;
+}
+@font-face  
+{
+    font-family: Futura Heavy Oblique; src: url('../fonts/Futura Std Heavy Oblique.otf');
+}    
+body        
+{   
+    padding: 0;
+    margin: 0; 
+    height: 100%;
+    background: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+}    
+.title      
+{
+    color: #000;
+    font-weight: 600;
+    font-size: 50px;
+    border-bottom: 5px solid #cc0000;
+    text-align: center;
+    top: 0;
+    margin-bottom: 0;
+    background-color: #FFF;
+    font-family: Futura Heavy Oblique;
+    width: 100%;
+    position: fixed;
+}
+.content    
+{
+    border-top: 5px solid #cc0000;
+    margin-left: 7em;
+    margin-right: 7em;
+    width: 100%;
+    background: #fff;
+}
+#footer     
+{
+    text-align: center;
+}
+/*
+#banner     
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 95%;
+    background-image: url('../images/reatarded2.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*/
+div.subtitle   
+{ 
+    line-height: .5em;
+    background: #FFF;
+    width: 100%;
+    top: 0;
+    font-family: Futura Heavy Oblique;
+    margin: 5px 10px 5px 10px;
+}
+.subtitle
+{
+    text-align: center;
+}
+.menu       
+{
+    font-family: Futura Heavy Oblique;
+    list-style: none;
+    display: inline-flex;
+    font-size: 1em;
+    justify-content: center;
+}
+.expand
+{
+    font-size: 150px;
+}
+div h1
+{
+    color: #000;
+    display: inline-block; 
+    margin: 0;
+}
+/*div h1::after
+{
+    display:block;
+    content: '';
+    border-bottom: solid 3px #019fb6; 
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+}*/
+div h1:hover::after
+{
+    transform: scaleX(1);
+    transition: transform 250ms ease-in-out;
+}
+ul          
+{
+    float: left;
+    margin: 0 auto;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    color: #000;   
+    display: inline-flex;    
+    background: #FFF;
+    font-family: Futura Heavy Oblique;
+    font-size: 1em;
+    line-height: 2em;
+}
+div.fill
+{
+    height: 100px;
+    background: #fff;
+}
+li       
+{
+    list-style: none;
+    display: block;
+    width: 100px;
+    text-align: center;
+}
+.nav ul li a     
+{
+    text-decoration: none;
+    margin: 10px;
+    margin-bottom: 0;
+    color: #000;    
+    display: block;
+}
+.nav ul li:hover 
+{
+    background-color: #000;
+    display: block;
+    transition: .3s;
+}
+.nav ul li:hover a 
+{
+    color: #FFF;
+    transition: .3s;
+}
+.nav ul li a:link, .nav ul li a:visited
+{
+    text-decoration: none;
+}
+.fixed
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    transition: .3s;
+}
+.fixed .title
+{
+    background: #fff;
+    font-size: 30px;
+} 
+.nav-placeholder
+{
+    margin: 10px 40px 40px 40px;
+    height: 100%;
+}
+.fixed .nav-inner
+{
+    height: 100%;
+}
+.link 
+{
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+.link::after 
+{
+/*    margin-right: 10px;*/
+/*
+    margin-bottom: 0;
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #FFF;
+    transition: width .5s;
+*/
+}
+
+.link:hover::after, li:hover .link::after 
+{
+    width: 100%;
+    transition: width .5s;
+}
+.nav ul .active
+{
+    background-color: #000;
+    color: #FFF;
+}
+.active .link
+{
+    color: #FFF;
+}
+.active .link::after
+{
+    width: 100%;
+    transition: 0.3s;
+}
+/*
+.inactive:hover .nav ul  
+{
+    color: #000;
+    background-color: #FFF;
+}
+*/
+.aright::after
+{
+    left: 0;
+    margin: 10px 5px 10px 5px;
+    color: #CC0000;
+    display: inline-block; 
+}
+.aright:after 
+{
+  display:block;
+  content: '';
+  border-bottom: solid 3px #CC0000;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.aright:hover::after
+{
+    transition: transform 250ms ease-in-out;
+    transform: scaleX(1);
+}
+.title::after
+{
+    display:block;
+    content: '';
+    border-bottom: solid 3px #CC0000;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+}
+.title:hover::after
+{
+    transform: scaleX(1);
+    border-bottom: 5px solid #FFF;
+}
+.mintitle
+{
+    font-size: 20px;
+    transition: .3s;
+}
+.maxtitle
+{
+    font-size: 30px;
+    transition: .3s;
+}
+.remove
+{
+    display: none;
+    transition: .3s;
+}
+.line
+{
+    background: #CC0000;
+    width: 100%;
+    height: 2px;
+}
+.line
+{
+    display:block;
+    content: '';
+    left: 0;
+    border-bottom: solid 3px #CC0000;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+}
+.aline
+{
+    transform: scaleX(1);
+    transition: .9s;
+}
+.nav
+{
+    justify-content: center;
+}
+
+.nav ul li
+{
+    display:block;
+    margin: 0px 5px 0px 0px;
+}
+.nav ul li a
+{
+    padding: 0px 10px 10px 10px;
+    display: block;
+}
+.nav ul  
+{
+    margin: 10px;
+}
+.nav ul li 
+{
+    transform: skewX(-20deg);
+}
+.nav ul li a
+{
+    transform: skewX(20deg);
+}
+.link
+{
+    transform: skewX(20deg);
+}
+.headers
+{
+    font-family: Futura Heavy Oblique; 
+    font-size: 25px;
+    color: #CC0099;
+}
+.desc
+{
+    text-align: left;
+    margin: 10px 10px 10px 10px;
+}
