@@ -53,6 +53,7 @@ app.use(session({
     cookie: {
         maxAge: 14 * 24 * 60 * 60
     }
+    
 }));
 app.use(passport.initialize());
 app.use(passport.session());
